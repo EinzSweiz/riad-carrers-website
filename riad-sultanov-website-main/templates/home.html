@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-d11EpoCTzDgYzAA57mCXQDeAKiSW1aSOjI8y9UzsaqDczZ61LwA7vZ6U3GfpPTC3" crossorigin="anonymous">
+  <!-- Standard favicon -->
+  <link rel="icon" type="image/png" href="static/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="static/favicon-16x16.png" sizes="16x16">
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+
+  <!-- Android Chrome Icon -->
+  <link rel="icon" type="image/png" sizes="192x192" href="static/android-chrome-192x192.png">
+
+  <!-- Safari Pinned Tab Icon -->
+  <link rel="mask-icon" href="static/safari-pinned-tab.svg" color="#5bbad5">
+
+  <!-- Manifest for Progressive Web Apps -->
+  <link rel="manifest" href="static/site.webmanifest">
+
+  <!-- Theme Color for Chrome on Android -->
+  <meta name="theme-color" content="#ffffff">
+  <title>Find Your Dream Job</title>
+  <link rel="stylesheet" href=""https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+  <style>
+    #banner {
+      height: 360px;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+  {% include "nav.html" %}
+  <img class="img-fluid" id="banner" src="static/Main.jpg" alt="">
+  
+  <!-- Your Dream Job Section -->
+  <div class="container">
+    <h1 class="text-center mt-2 mb-4">Your Dream Job</h1>
+    <div class="row" style="margin-bottom: 16px">
+      <div class="col-md-6">
+        <p class="lead">
+        Learning to code is transformative because it enhances problem-solving skills by teaching you to approach complex problems methodically and think critically. It opens up numerous career opportunities in the fast-growing tech industry, including software development, data analysis, and artificial intelligence. Coding can significantly increase your earning potential, providing financial stability and growth. It also fosters creativity and innovation, allowing you to create websites, apps, games, and software solutions. Understanding code empowers you to build your own projects and solutions, giving you independence and the ability to bring your ideas to life.</p>
+      </div>
+      <div class="d-none d-md-block col-md-6">
+        <img src="static/matrix.webp" alt="" style="height:320px; width: 520px; border-radius: 4px;">
+      </div>
+    </div>
+  </div>
+  
+  <!-- New Section: Why Use Our Website -->
+  <div class="container my-4">
+    <h2 class="text-center mt-2 mb-4">Why Use Our Website</h2>
+    <div class="row">
+      <div class="col-12">
+        <p>
+          Our website is designed to connect you with your dream job effortlessly. We understand the challenges of job hunting and aim to simplify the process by providing a comprehensive platform where you can explore various job listings, apply for positions that match your skills, and track your applications seamlessly. Our advanced filtering options ensure that you only see the jobs that are most relevant to you, saving you time and effort.
+        </p>
+        <p>
+          In addition to job listings, we offer a range of resources to help you improve your skills. Whether you're looking to enhance your resume, prepare for interviews, or learn new technologies, our website provides access to tutorials, articles, and courses that will help you stay competitive in the job market. By continuously updating our content and features, we ensure that you have the tools you need to succeed in your career.
+        </p>
+        <p>
+          Join our community of professionals and take the next step in your career with confidence. Our user-friendly interface and dedicated support team are here to assist you every step of the way. Start your journey with us today and see how we can help you achieve your career goals.
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Open Positions Section -->
+  <h2 class="text-center mt-2 mb-4">Open Positions</h2>
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="list-group">
+          {% for job in jobs %}
+          <div class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+              <h5 class="mb-1">{{ job.title }}</h5>
+              <p class="mb-1"><strong>Location:</strong> {{ job.location }}</p>
+              <p class="mb-1"><strong>Salary:</strong> {{ job.salary }}</p>
+            </div>
+            <a href="mailto:riad.sultanov.1999@gmail.com?subject=Application for {{job['title']}}" class="btn btn-primary">Apply</a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {% include 'footer.html' %}
+</body>
+</html>
